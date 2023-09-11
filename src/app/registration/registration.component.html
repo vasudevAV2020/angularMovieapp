@@ -1,0 +1,5 @@
+<!-- In registration.component.html -->
+<button type="submit" [disabled]="!registerForm.valid || authService.isLoggedIn$ | async">
+    Register
+  </button>
+  

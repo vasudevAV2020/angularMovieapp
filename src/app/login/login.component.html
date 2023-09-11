@@ -1,0 +1,18 @@
+<h2>Login</h2>
+<form (ngSubmit)="onLoginSubmit()" #loginForm="ngForm">
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" [(ngModel)]="user.email" required>
+  </div>
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" [(ngModel)]="user.password" required>
+  </div>
+  <button type="submit" [disabled]="!loginForm.valid">Login</button>
+</form>
+
+<!-- In login.component.html -->
+<button type="submit" [disabled]="!loginForm.valid || authService.isLoggedIn$ | async">
+    Login
+  </button>
+  
